@@ -29,11 +29,7 @@ public class GraphPanel extends JPanel{
 		//draw all edges
 		for (Edge<VertexPoint> edge: graph.getAllEdgesAsLinkedList()){
 			g.drawLine(edge.getFromVertex().x, edge.getFromVertex().y, edge.getToVertex().x, edge.getToVertex().y);
-			int minX = Math.min(edge.getFromVertex().x, edge.getToVertex().x);
-			int maxX = Math.max(edge.getFromVertex().x, edge.getToVertex().x);
-			int minY = Math.min(edge.getFromVertex().y, edge.getToVertex().y);
-			int maxY = Math.max(edge.getFromVertex().y, edge.getToVertex().y);
-			g.drawString(""+edge.getWeight(), (maxX/2)+(minX/2), (maxY/2)+(minY/2));
+			g.drawString(""+edge.getWeight(), edge.getFromVertex().x/2+edge.getToVertex().x/2, edge.getFromVertex().y/2+edge.getToVertex().y/2);
 			
 		}
 		
