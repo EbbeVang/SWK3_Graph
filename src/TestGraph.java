@@ -1,4 +1,4 @@
-import Graph.Graph;
+import graph.Graph;
 
 
 public class TestGraph {
@@ -25,5 +25,11 @@ public class TestGraph {
 		
 		System.out.println("Rønne and Gudhjem are connected: " + graph.isAdjecentVertices("Rønne", "Gudjhem"));
 		System.out.println("Rønne and Aakirkeby are connected: " + graph.isAdjecentVertices("Rønne", "Aakirkeby"));
+	
+		System.out.println("Remove Hasle");
+		graph.removeVertex("Hasle");
+		System.out.println("Vertices: " + graph.getAllVertices());
+		System.out.println("Edges: " + graph.getAllEdges());
+		
 	}
 }
