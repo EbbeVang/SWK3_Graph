@@ -1,8 +1,11 @@
-package Graph;
+package graph;
+import java.awt.Point;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import javax.swing.RepaintManager;
 
 
 public class Graph<T> implements Iterable<T>{
@@ -25,9 +28,29 @@ public class Graph<T> implements Iterable<T>{
 	}
 	
 	public void removeVertex(T vertex){
+		LinkedList<Edge<T>> edgesToBeRemoved = new LinkedList<Edge<T>>();
+		
+		// remove all edges connected to the Vertex
+		for (Edge<T> edge: edges){
+			if (edge.getFromVertex().equals(vertex)){
+				edgesToBeRemoved.add(edge);
+			}
+			else if (edge.getToVertex().equals(vertex)){
+				edgesToBeRemoved.add(edge);
+			}
+		}
+		edges.removeAll(edgesToBeRemoved);
+		
+		// remove vertex
 		vertices.remove(vertex);
+		System.out.println("vertices:"+vertices.size());
+		System.out.println("edges:"+edges.size());
 	}
 	
+	public void removeEdge(Edge<T> edge) {
+		edges.remove(edge);		
+	}
+
 	public void addEdge(T from, T to, int weight){
 		Edge edge = new Edge();
 		edge.setFromVertex(from);
@@ -96,7 +119,9 @@ public class Graph<T> implements Iterable<T>{
 			
 		}
 		
-	}	
+	}
+
+	
 }
 
 	

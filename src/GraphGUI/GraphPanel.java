@@ -1,11 +1,12 @@
 package GraphGUI;
+import graph.Edge;
+import graph.Graph;
+
 import java.awt.Graphics;
 import java.awt.Point;
 
 import javax.swing.JPanel;
 
-import Graph.Edge;
-import Graph.Graph;
 
 
 public class GraphPanel extends JPanel{
